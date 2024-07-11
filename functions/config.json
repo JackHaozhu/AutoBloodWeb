@@ -1,0 +1,17 @@
+{
+    "game_dir": "D:\\SteamLibrary\\steamapps\\common\\Dead by Daylight",
+    "0": {
+        "pattern": [
+            "iconItems_medkit",
+            "iconItems_toolbox",
+            "iconItems_flashlight"
+        ]
+    },
+    "1": {
+        "The Nurse": [
+            "HAHAHA",
+            "Red Apple",
+            "Test2"
+        ]
+    }
+}
