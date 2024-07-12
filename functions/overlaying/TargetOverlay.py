@@ -1,4 +1,6 @@
 import json
+
+import cv2
 from PIL import Image
 
 
@@ -28,8 +30,8 @@ def overlay(background_image_path, overlay_image_path):
     overlaid = overlaid.convert('RGB').resize((114, 114)).crop((10, 10, 104, 104))
     # overlaid.resize((128, 128))
     # cropped_overlaid = overlaid.crop((3, 3, 111, 111))
-    # overlaid.show()
     # cropped_overlaid.show()
+    # overlaid.show()
     return overlaid
 
 
