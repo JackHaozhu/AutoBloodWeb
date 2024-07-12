@@ -79,6 +79,26 @@ def custom_click():
     pag.mouseUp()
 
 
+def group_targets(targets):
+    center = np.array((1360, 1145), dtype=np.float64)
+    targets = np.array(targets, dtype=np.float64)
+
+    # group = np.ones(len(targets), dtype=int)
+    grouped_targets = [[], [], []]
+
+    for target in targets:
+        distance = np.linalg.norm(target - center)
+
+        if distance > 600:
+            grouped_targets[0].append(target)
+        elif distance > 400:
+            grouped_targets[1].append(target)
+        elif distance > 200:
+            grouped_targets[2].append(target)
+
+    return grouped_targets
+
+
 def click_targets(target_positions, method: int = 0):
     if method == 0:
         for target in target_positions:
@@ -86,8 +106,16 @@ def click_targets(target_positions, method: int = 0):
             pag.moveTo(x, y)
             custom_click()
             time.sleep(2)
+    if method == 1:
+        grouped_targets = group_targets(target_positions)
+        for group in grouped_targets:
+            for target in group:
+                x,y = target
+                pag.moveTo(x, y)
+                custom_click()
+                time.sleep(2)
 
-
+    time.sleep(3)
 
 if __name__ == '__main__':
     config = read_config()
@@ -107,4 +135,4 @@ if __name__ == '__main__':
     # print(matches)
     matches = remove_close_matches(matches)
     # print(matches)
-    click_targets(matches, 0)
+    click_targets(matches, 1)
