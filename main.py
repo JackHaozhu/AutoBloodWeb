@@ -110,14 +110,17 @@ def click_targets(target_positions, method: int = 0):
         grouped_targets = group_targets(target_positions)
         for group in grouped_targets:
             for target in group:
-                x,y = target
+                x, y = target
                 pag.moveTo(x, y)
                 custom_click()
                 time.sleep(2)
 
-    time.sleep(3)
+    pag.moveTo(1360, 1145)
+    custom_click()
+    time.sleep(4)
 
-if __name__ == '__main__':
+
+def test_function():
     config = read_config()
     dir_dict = read_dict()
 
@@ -136,3 +139,7 @@ if __name__ == '__main__':
     matches = remove_close_matches(matches)
     # print(matches)
     click_targets(matches, 1)
+
+
+if __name__ == '__main__':
+    test_function()
