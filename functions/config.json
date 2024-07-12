@@ -1,7 +1,7 @@
 {
     "game_dir": "D:\\SteamLibrary\\steamapps\\common\\Dead by Daylight",
     "0": {
-        "pattern": [
+        "Human": [
             "iconItems_medkit",
             "iconItems_toolbox",
             "iconItems_flashlight"

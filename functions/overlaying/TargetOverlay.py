@@ -1,7 +1,5 @@
 import json
 from PIL import Image
-import cv2
-import numpy as np
 
 
 def read_dict():
@@ -30,7 +28,7 @@ def overlay(background_image_path, overlay_image_path):
     overlaid = overlaid.convert('RGB').resize((114, 114)).crop((10, 10, 104, 104))
     # overlaid.resize((128, 128))
     # cropped_overlaid = overlaid.crop((3, 3, 111, 111))
-    overlaid.show()
+    # overlaid.show()
     # cropped_overlaid.show()
     return overlaid
 
