@@ -105,6 +105,7 @@ def click_targets(target_positions, method: int = 0):
             x, y = target
             pag.moveTo(x, y)
             custom_click()
+            pag.moveTo(0, 0)
             time.sleep(2)
     if method == 1:
         grouped_targets = group_targets(target_positions)
@@ -113,11 +114,14 @@ def click_targets(target_positions, method: int = 0):
                 x, y = target
                 pag.moveTo(x, y)
                 custom_click()
+                pag.moveTo(0, 0)
                 time.sleep(2)
 
     pag.moveTo(1360, 1145)
     custom_click()
-    time.sleep(4)
+    pag.moveTo(0, 0)
+    time.sleep(7)
+    print("Finished a Page!")
 
 
 def test_function():
@@ -142,4 +146,5 @@ def test_function():
 
 
 if __name__ == '__main__':
-    test_function()
+    while True:
+        test_function()

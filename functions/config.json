@@ -2,9 +2,13 @@
     "game_dir": "D:\\SteamLibrary\\steamapps\\common\\Dead by Daylight",
     "0": {
         "Human": [
-            "iconItems_medkit",
-            "iconItems_toolbox",
-            "iconItems_flashlight"
+            "iconFavors_bloodyPartyStreamers",
+            "iconItems_toolboxCommodious",
+            "iconItems_toolboxEngineers",
+            "iconAddon_brandNewPart",
+            "iconAddon_stypticAgent",
+            "iconAddon_socketSwivels",
+            "iconAddon_spoolOfWire"
         ]
     },
     "1": {
