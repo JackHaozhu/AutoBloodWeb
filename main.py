@@ -121,7 +121,6 @@ def click_targets(target_positions, method: int = 0):
     custom_click()
     pag.moveTo(0, 0)
     time.sleep(7)
-    print("Finished a Page!")
 
 
 def test_function():
@@ -145,6 +144,33 @@ def test_function():
     click_targets(matches, 1)
 
 
+def out_of_bloodpoints(current_image, cache_image, threshold=0.9):
+    gray_current_image = cv2.cvtColor(current_image, cv2.COLOR_BGR2GRAY)
+    gray_cache_image = cv2.cvtColor(cache_image, cv2.COLOR_BGR2GRAY)
+
+    print("Calculating Hist")
+    current_hist = cv2.calcHist([gray_current_image], [0], None, [256], [0, 256])
+    cach_hist = cv2.calcHist([gray_cache_image], [0], None, [256], [0, 256])
+
+    print("Hist Normalizing")
+    cv2.normalize(current_hist, current_hist)
+    cv2.normalize(cach_hist, cach_hist)
+
+    print("Starting Comparing")
+    simularity = cv2.compareHist(current_hist, cach_hist, cv2.HISTCMP_CORREL)
+
+    return simularity >= threshold
+
+
 if __name__ == '__main__':
+    cache = None
+    count = 0
     while True:
+        count += 1
+        screenshot = cv2.cvtColor(np.array(pag.screenshot()), cv2.COLOR_RGB2BGR)
+        if cache is not None and out_of_bloodpoints(screenshot, cache):
+            print("Out of Bloodpoints!")
+            break
+        cache = screenshot
         test_function()
+        print(f"Finished Page {count}!")
